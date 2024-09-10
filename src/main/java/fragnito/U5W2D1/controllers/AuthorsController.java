@@ -27,4 +27,9 @@ public class AuthorsController {
     public Author saveAuthor(@RequestBody Author body){
         return authorsService.saveAuthor(body);
     }
+
+    @PutMapping("/{authorId}")
+    public Author putAuthor(@PathVariable int authorId, @RequestBody Author body){
+        return authorsService.updateAuthor(authorId, body);
+    }
 }

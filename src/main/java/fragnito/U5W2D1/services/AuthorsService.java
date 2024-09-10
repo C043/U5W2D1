@@ -27,4 +27,14 @@ public class AuthorsService {
         authorList.add(body);
         return body;
     }
+
+    public Author updateAuthor(int authorId, Author updatedAuthor){
+        Author found = this.findAuthorById(authorId);
+        found.setAvatar("https://ui-avatars.com/api/?name=" + updatedAuthor.getNome() + "+" + updatedAuthor.getCognome());
+        found.setNome(updatedAuthor.getNome());
+        found.setCognome(updatedAuthor.getCognome());
+        found.setEmail(updatedAuthor.getEmail());
+        found.setDataDiNascita(updatedAuthor.getDataDiNascita());
+        return found;
+    }
 }
