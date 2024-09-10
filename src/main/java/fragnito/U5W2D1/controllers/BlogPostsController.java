@@ -34,4 +34,10 @@ public class BlogPostsController {
     public BlogPost putBlogPost(@PathVariable int postId, @RequestBody BlogPost body){
         return blogPostsService.updateBlogPost(postId, body);
     }
+
+    @DeleteMapping("/{postId}")
+    public String deleteBlogPost(@PathVariable int postId){
+        blogPostsService.deleteBlogPost(postId);
+        return "Post eliminato con successo.";
+    }
 }

@@ -39,4 +39,9 @@ public class BlogPostsService {
         found.setCategoria(updatedBlogPost.getCategoria());
         return found;
     }
+
+    public void deleteBlogPost(int postId){
+        BlogPost found = this.getBlogPostById(postId);
+        this.blogPostList.remove(found);
+    }
 }
