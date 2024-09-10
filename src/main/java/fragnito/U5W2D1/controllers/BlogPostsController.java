@@ -3,9 +3,8 @@ package fragnito.U5W2D1.controllers;
 import fragnito.U5W2D1.entities.BlogPost;
 import fragnito.U5W2D1.services.BlogPostsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +17,16 @@ public class BlogPostsController {
     @GetMapping
     public List<BlogPost> getBlogPosts(){
         return blogPostsService.findBlogPosts();
+    }
+
+    @GetMapping("/{postId}")
+    public BlogPost getBlogPostById(@PathVariable int postId){
+        return blogPostsService.getBlogPostById(postId);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public BlogPost postBlogPost(@RequestBody BlogPost body){
+        return blogPostsService.saveBlogPost(body);
     }
 }

@@ -8,7 +8,6 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public class BlogPost {
-    @Setter(AccessLevel.NONE)
     private int id;
     private String categoria;
     private String titolo;

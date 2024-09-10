@@ -1,15 +1,32 @@
 package fragnito.U5W2D1.services;
 
 import fragnito.U5W2D1.entities.BlogPost;
+import fragnito.U5W2D1.exceptions.NotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.Random;
 
 @Service
 public class BlogPostsService {
-    private List<BlogPost> blogPostList;
+    private final List<BlogPost> blogPostList = new ArrayList<>();
 
     public List<BlogPost> findBlogPosts(){
         return this.blogPostList;
+    }
+
+    public BlogPost getBlogPostById(int postId){
+        return this.blogPostList.stream().filter(post -> post.getId() == postId).findFirst().orElseThrow();
+    }
+
+    public BlogPost saveBlogPost(BlogPost body){
+        Random rand = new Random();
+        body.setId(rand.nextInt(1, 1000));
+        body.setCover("https://picsum.photos/200/300");
+        body.setTempoDiLettura(rand.nextInt(3, 10));
+        this.blogPostList.add(body);
+        return body;
     }
 }
