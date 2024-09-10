@@ -10,11 +10,10 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @ToString
 public class Author {
-    @Setter(AccessLevel.NONE)
     private int id;
     private String nome;
     private String cognome;
     private String email;
-    private LocalDate dataDiNascita;
+    private String dataDiNascita;
     private String avatar;
 }
