@@ -3,6 +3,7 @@ package fragnito.U5W2D1.controllers;
 import fragnito.U5W2D1.entities.Author;
 import fragnito.U5W2D1.services.AuthorsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +25,7 @@ public class AuthorsController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public Author saveAuthor(@RequestBody Author body){
         return authorsService.saveAuthor(body);
     }
