@@ -18,6 +18,11 @@ public class AuthorsController {
         return authorsService.getAuthorList();
     }
 
+    @GetMapping("/{authorId}")
+    public Author getAuthorById(@PathVariable int authorId){
+        return authorsService.findAuthorById(authorId);
+    }
+
     @PostMapping
     public Author saveAuthor(@RequestBody Author body){
         return authorsService.saveAuthor(body);

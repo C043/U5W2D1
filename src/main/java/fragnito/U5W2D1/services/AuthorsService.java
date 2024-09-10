@@ -16,6 +16,10 @@ public class AuthorsService {
         return this.authorList;
     }
 
+    public Author findAuthorById(int authorId){
+        return authorList.stream().filter(author -> author.getId() == authorId).findFirst().orElseThrow();
+    }
+
     public Author saveAuthor(Author body){
         Random rand = new Random();
         body.setId(rand.nextInt(1, 1000));
