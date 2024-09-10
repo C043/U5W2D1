@@ -29,4 +29,14 @@ public class BlogPostsService {
         this.blogPostList.add(body);
         return body;
     }
+
+    public BlogPost updateBlogPost(int postId, BlogPost updatedBlogPost){
+        BlogPost found = this.getBlogPostById(postId);
+        found.setCover(updatedBlogPost.getCover());
+        found.setTitolo(updatedBlogPost.getTitolo());
+        found.setContenuto(updatedBlogPost.getContenuto());
+        found.setTempoDiLettura(updatedBlogPost.getTempoDiLettura());
+        found.setCategoria(updatedBlogPost.getCategoria());
+        return found;
+    }
 }

@@ -29,4 +29,9 @@ public class BlogPostsController {
     public BlogPost postBlogPost(@RequestBody BlogPost body){
         return blogPostsService.saveBlogPost(body);
     }
+
+    @PutMapping("/{postId}")
+    public BlogPost putBlogPost(@PathVariable int postId, @RequestBody BlogPost body){
+        return blogPostsService.updateBlogPost(postId, body);
+    }
 }
