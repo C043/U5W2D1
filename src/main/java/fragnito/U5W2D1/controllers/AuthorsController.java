@@ -32,4 +32,10 @@ public class AuthorsController {
     public Author putAuthor(@PathVariable int authorId, @RequestBody Author body){
         return authorsService.updateAuthor(authorId, body);
     }
+
+    @DeleteMapping("/{authorId}")
+    public String deleteAuthor(@PathVariable int authorId){
+        authorsService.deleteAuthor(authorId);
+        return "Autore eliminato con successo.";
+    }
 }

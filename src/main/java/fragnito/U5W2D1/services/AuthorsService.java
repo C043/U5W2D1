@@ -37,4 +37,8 @@ public class AuthorsService {
         found.setDataDiNascita(updatedAuthor.getDataDiNascita());
         return found;
     }
+
+    public void deleteAuthor(int authorId){
+        this.authorList.remove(this.findAuthorById(authorId));
+    }
 }
